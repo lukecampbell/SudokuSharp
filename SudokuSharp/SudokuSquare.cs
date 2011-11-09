@@ -69,7 +69,7 @@ namespace SudokuSharp
 			MakeLabelVisible();
 			eventBox.ButtonPressEvent+= new ButtonPressEventHandler(keyPressEvent);
 			entry.Activated += new EventHandler(onActivate);
-			
+			entry.FocusOutEvent += new FocusOutEventHandler(onFocusOutEvent);
 			
 		}
 		private static void keyPressEvent(object sender, ButtonPressEventArgs a)
@@ -78,6 +78,24 @@ namespace SudokuSharp
 			SudokuSquare square = (SudokuSquare) caller.Parent;
 			square.MakeEntryVisible();
 			square.entry.GrabFocus();
+		}
+		private static void onFocusOutEvent(object sender, FocusOutEventArgs a)
+		{
+			Entry caller = (Entry) sender;
+			HBox hisParent = (HBox) caller.Parent;
+			EventBox boxesParent = (EventBox) hisParent.Parent;
+			SudokuSquare square = (SudokuSquare) boxesParent.Parent;
+			char v = ' ';
+			try {
+				v = ParseEntryInput(caller.Text);
+			} catch (FormatException e) {
+				Console.WriteLine(e.Message);
+				square.Val = ' ';
+				return;
+			}
+			square.Val = v;
+			
+			square.MakeLabelVisible();
 		}
 		private static void onActivate(object sender, EventArgs a)
 		{
@@ -99,6 +117,8 @@ namespace SudokuSharp
 		}
 		public static char ParseEntryInput(string input)
 		{
+			if(input == null || input.Length < 1)
+				return ' ';
 			char firstChar = input[0];
 			if(firstChar == ' ')
 				return firstChar;
