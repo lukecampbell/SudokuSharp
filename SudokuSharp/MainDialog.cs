@@ -6,16 +6,19 @@ namespace SudokuSharp
 	public class MainDialog : Window
 	{
 		private SudokuSquare[] squares;
+		private Button closeButton = new Button();
 		public MainDialog () : base("Sudoku")
 		{
 			init();
 			DeleteEvent+=new DeleteEventHandler(OnDeleteEvent);
+			closeButton.Clicked += new EventHandler(OnCloseEvent);
 
 			
 		}
 		private void init()
 		{
 			squares = new SudokuSquare[81];
+			closeButton = Button.NewWithMnemonic("_Close");
 			for(int i=0;i<81;i++)
 			{
 				squares[i] = new SudokuSquare();
@@ -32,9 +35,15 @@ namespace SudokuSharp
 				hbox.Show();
 				vbox.PackStart(hbox,true,true,0);
 			}
+			vbox.PackStart(closeButton,false,false,0);
+			closeButton.Show();
 			vbox.Show();
 			Add(vbox);
 			Show();
+		}
+		private static void OnCloseEvent(object sender, EventArgs a)
+		{
+			Application.Quit();
 		}
 		private static void OnDeleteEvent(object sender, DeleteEventArgs a)
 		{
