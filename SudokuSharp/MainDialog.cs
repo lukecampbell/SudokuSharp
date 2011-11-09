@@ -5,7 +5,8 @@ namespace SudokuSharp
 {
 	public class MainDialog : Window
 	{
-		private SudokuSquare[] squares;
+		private SudokuSquareFrame[] squares;
+		
 		private Button closeButton = new Button();
 		public MainDialog () : base("Sudoku")
 		{
@@ -17,11 +18,11 @@ namespace SudokuSharp
 		}
 		private void init()
 		{
-			squares = new SudokuSquare[81];
+			squares = new SudokuSquareFrame[81];
 			closeButton = Button.NewWithMnemonic("_Close");
 			for(int i=0;i<81;i++)
 			{
-				squares[i] = new SudokuSquare();
+				squares[i] = new SudokuSquareFrame();
 				squares[i].Val =' ';
 			}
 			VBox vbox = new VBox(true, 2);

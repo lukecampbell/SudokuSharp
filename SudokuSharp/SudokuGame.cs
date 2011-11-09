@@ -2,9 +2,9 @@ using System;
 
 namespace SudokuSharp
 {
-	public class SudokuSquare
+	public class SudokuGame
 	{
-		public SudokuSquare ()
+		public SudokuGame ()
 		{
 		}
 	}

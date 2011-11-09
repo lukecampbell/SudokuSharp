@@ -41,6 +41,8 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="MainDialog.cs" />
+    <Compile Include="SudokuGame.cs" />
+    <Compile Include="SudokuSquareFrame.cs" />
     <Compile Include="SudokuSquare.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
