@@ -1,4 +1,7 @@
 Build a Sudoku board, game, and relation between all of them
+ \_ SudokuSquare
+    - Possibilities bitMap (in progress)
+
 
 Perform unit testing on the game
 

@@ -1,4 +1,4 @@
-#define __DEBUG__
+
 
 using System;
 
@@ -25,8 +25,8 @@ namespace SudokuSharp
 				string ret = "(";
 				for(int i=1;i<=9;i++)
 				{
-					uint map = (uint)((bitMap >> 9) & 0x01);
-					if(map==0)
+					uint map = (uint)((bitMap >> i) & 0x01);
+					if((map)==0)
 						ret+=' ';
 					else
 						ret+=(char)(i+'0');
@@ -50,8 +50,12 @@ namespace SudokuSharp
 			uint mask = ((uint)0x01 << (int)n);
 #if __DEBUG__
 			Console.WriteLine("Mask: "+mask);	
+			
 #endif
-			bitMap = bitMap & ~mask;
+			bitMap &= ~mask;
+#if __DEBUG__
+			Console.WriteLine("bitMap: "+PossibilitiesString);
+#endif
 		}
 		public override string ToString ()
 		{
