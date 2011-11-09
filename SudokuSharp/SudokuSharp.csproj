@@ -38,12 +38,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="MainDialog.cs" />
     <Compile Include="SudokuGame.cs" />
     <Compile Include="SudokuSquareFrame.cs" />
     <Compile Include="SudokuSquare.cs" />
+    <Compile Include="UnitTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
