@@ -38,9 +38,15 @@ namespace SudokuSharp
 		public int Row { get; set; }
 		public int Col { get; set; }
 		
-		public SudokuSquare ()
+		public SudokuSquare () : this(0,0,'-')
 		{
 			
+		}
+		public SudokuSquare(int row, int col, char val) 
+		{
+			Row = row;
+			Col = col;
+			SquareValue = val; /* May throw exception, handled by caller */
 		}
 		
 		public void TurnOff(uint n)
@@ -59,7 +65,12 @@ namespace SudokuSharp
 		}
 		public override string ToString ()
 		{
-			 return PossibilitiesString;
+			 string ret = "Square [" + 
+				Row + "," +
+				Col + "] " +
+				PossibilitiesString +
+				" : " + SquareValue;
+			return ret;
 		}
 	}
 }
