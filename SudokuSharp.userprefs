@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SudokuSharp/SudokuSquare.cs">
+    <Files>
+      <File FileName="SudokuSharp/UnitTest.cs" Line="2" Column="18" />
+      <File FileName="SudokuSharp/MainDialog.cs" Line="9" Column="3" />
+      <File FileName="SudokuSharp/SudokuSquareFrame.cs" Line="6" Column="32" />
+      <File FileName="SudokuSharp/SudokuGame.cs" Line="7" Column="23" />
+      <File FileName="SudokuSharp/SudokuSquare.cs" Line="43" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

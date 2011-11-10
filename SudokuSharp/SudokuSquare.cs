@@ -1,12 +1,18 @@
 
 
 using System;
+using System.Collections;
 
 namespace SudokuSharp
 {
 	public class SudokuSquare
 	{
 		private uint bitMap=0x3FE;
+		
+		public uint Count { get; private set; }
+		
+		// IList<Cluster> clusters
+		
 		private char val_;
 		public char SquareValue {
 			get { return val_; }
@@ -47,6 +53,7 @@ namespace SudokuSharp
 			Row = row;
 			Col = col;
 			SquareValue = val; /* May throw exception, handled by caller */
+			Count = 9;
 		}
 		
 		public void TurnOff(uint n)
@@ -54,14 +61,12 @@ namespace SudokuSharp
 			if(n<1 || n>9)
 				throw new FormatException("SudokuSquare.TurnOff(): n is out of range 1-9");
 			uint mask = ((uint)0x01 << (int)n);
-#if __DEBUG__
-			Console.WriteLine("Mask: "+mask);	
-			
-#endif
-			bitMap &= ~mask;
-#if __DEBUG__
-			Console.WriteLine("bitMap: "+PossibilitiesString);
-#endif
+			if((mask & bitMap)!=0)
+			{
+				bitMap &= ~mask;
+				if(Count>0)
+					Count--;
+			}
 		}
 		public override string ToString ()
 		{
